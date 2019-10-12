@@ -13,14 +13,11 @@
   <component name="ChangeListManager">
     <list default="true" id="158817ef-3187-402d-8088-452d9a06dfe8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CSC3150_Assignment_2.dir/source/hw2.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CSC3150_Assignment_2.dir/source/hw2.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CSC3150_Assignment_2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CSC3150_Assignment_2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/Frog.h" beforeDir="false" afterPath="$PROJECT_DIR$/source/Frog.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/Frog.h.gch" beforeDir="false" afterPath="$PROJECT_DIR$/source/Frog.h.gch" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/Log.h" beforeDir="false" afterPath="$PROJECT_DIR$/source/Log.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/Log.h.gch" beforeDir="false" afterPath="$PROJECT_DIR$/source/Log.h.gch" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/a.out" beforeDir="false" afterPath="$PROJECT_DIR$/source/a.out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/hw2.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/source/hw2.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/util.h" beforeDir="false" afterPath="$PROJECT_DIR$/source/util.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/util.h.gch" beforeDir="false" afterPath="$PROJECT_DIR$/source/util.h.gch" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -48,8 +45,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/hw2.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="44" column="104" selection-start-line="44" selection-start-column="104" selection-end-line="44" selection-end-column="104" />
+            <state relative-caret-position="122">
+              <caret line="48" column="11" selection-start-line="48" selection-end-line="49" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -57,11 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/util.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="836">
-              <caret line="44" column="20" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
+            <state relative-caret-position="562">
+              <caret line="59" column="93" selection-start-line="59" selection-start-column="93" selection-end-line="59" selection-end-column="93" />
               <folding>
                 <element signature="e#113#131#0" expanded="true" />
               </folding>
@@ -69,11 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/Log.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+            <state relative-caret-position="492">
+              <caret line="54" column="13" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
               <folding>
                 <element signature="e#185#203#0" expanded="true" />
               </folding>
@@ -84,7 +81,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/Frog.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-16">
+            <state relative-caret-position="114">
               <caret line="49" column="97" selection-start-line="49" selection-start-column="97" selection-end-line="49" selection-end-column="97" />
               <folding>
                 <element signature="e#113#131#0" expanded="true" />
@@ -94,6 +91,12 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>sleep</find>
+      <find>status</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -107,10 +110,10 @@
         <option value="$PROJECT_DIR$/source/Input.cpp" />
         <option value="$PROJECT_DIR$/source/Input.h" />
         <option value="$PROJECT_DIR$/source/test.sh" />
-        <option value="$PROJECT_DIR$/source/util.h" />
         <option value="$PROJECT_DIR$/source/Frog.h" />
-        <option value="$PROJECT_DIR$/source/hw2.cpp" />
         <option value="$PROJECT_DIR$/source/Log.h" />
+        <option value="$PROJECT_DIR$/source/hw2.cpp" />
+        <option value="$PROJECT_DIR$/source/util.h" />
       </list>
     </option>
   </component>
@@ -174,7 +177,7 @@
       <workItem from="1570852626946" duration="3518000" />
       <workItem from="1570857563941" duration="1688000" />
       <workItem from="1570870627245" duration="11910000" />
-      <workItem from="1570887085283" duration="10463000" />
+      <workItem from="1570887085283" duration="20746000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1570877615952</created>
@@ -197,11 +200,25 @@
       <option name="project" value="LOCAL" />
       <updated>1570893551376</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Wrong direction&#10;Need judge game status">
+      <created>1570899422606</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1570899422606</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Only need finish judge now">
+      <created>1570906657995</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1570906657996</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29306000" />
+    <option name="totallyTimeSpent" value="39589000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -276,7 +293,9 @@
     <MESSAGE value="First commit" />
     <MESSAGE value="Starting moving" />
     <MESSAGE value="At least frog move with log (sometimes direction wrong)" />
-    <option name="LAST_COMMIT_MESSAGE" value="At least frog move with log (sometimes direction wrong)" />
+    <MESSAGE value="Wrong direction&#10;Need judge game status" />
+    <MESSAGE value="Only need finish judge now" />
+    <option name="LAST_COMMIT_MESSAGE" value="Only need finish judge now" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
@@ -309,19 +328,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/util.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
-          <caret line="44" column="20" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
-          <folding>
-            <element signature="e#113#131#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/Frog.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-16">
+        <state relative-caret-position="114">
           <caret line="49" column="97" selection-start-line="49" selection-start-column="97" selection-end-line="49" selection-end-column="97" />
           <folding>
             <element signature="e#113#131#0" expanded="true" />
@@ -329,22 +338,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/source/Log.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="54" column="13" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
+          <folding>
+            <element signature="e#185#203#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/source/hw2.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="44" column="104" selection-start-line="44" selection-start-column="104" selection-end-line="44" selection-end-column="104" />
+        <state relative-caret-position="122">
+          <caret line="48" column="11" selection-start-line="48" selection-end-line="49" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/Log.h">
+    <entry file="file://$PROJECT_DIR$/source/util.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+        <state relative-caret-position="562">
+          <caret line="59" column="93" selection-start-line="59" selection-start-column="93" selection-end-line="59" selection-end-column="93" />
           <folding>
-            <element signature="e#185#203#0" expanded="true" />
+            <element signature="e#113#131#0" expanded="true" />
           </folding>
         </state>
       </provider>

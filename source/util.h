@@ -47,23 +47,34 @@ public:
         else if (frog->y_pos == 1)
             return 2;
 
-        Log *log = logs[frog->y_pos-2];
-        if (frog->x_pos >= log->left_pos-1 && frog->x_pos <= log->left_pos + log->len+2) {
-            return 1; // still live
-        } else {
-            this->living = 0;
-            return 0;
+        Log *log = logs[frog->y_pos - 2];
+        if (log->direction == 1) {
+            if (frog->x_pos >= log->left_pos && frog->x_pos <= log->left_pos + log->len + 1) {
+                return 1; // still live
+            } else {
+                this->living = 0;
+                return 0;
+            }
+        }
+        else if (log->direction == -1) {
+            if (frog->x_pos >= log->left_pos+1 && frog->x_pos <= log->left_pos + log->len + 2) {
+                return 1; // still live
+            } else {
+                this->living = 0;
+                return 0;
+            }
         }
     }
 
     void show_status() {
         printf("\033[H\033[2J");
+        sleep(2);
         if (living == 2) {
-            printf("YOU LUCKY BASTARD (win)");
+            printf("YOU LUCKY BASTARD (win)\n");
         } else if (living == 0) {
-            printf("YOU DIED (lose)");
+            printf("YOU SUCK (lose)\n");
         } else {
-            printf("YOU LITTLE COWARD (quit)");
+            printf("YOU LITTLE COWARD (quit)\n");
         }
     }
 };
