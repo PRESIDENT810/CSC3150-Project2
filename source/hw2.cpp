@@ -13,7 +13,7 @@
 
 #define ROW 10
 #define COLUMN 50
-#define WAIT 150000
+#define WAIT 50000
 
 Frog *frog = new Frog();
 Game *game = new Game();
