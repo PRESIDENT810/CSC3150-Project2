@@ -1,0 +1,92 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/zhongkaining/OneDrive/College/2019-Term 1/CSC3150/Project/CSC3150_Assignment_2/source/Frog.h
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+unistd.h
+-
+time.h
+-
+curses.h
+-
+termios.h
+-
+fcntl.h
+-
+
+/Users/zhongkaining/OneDrive/College/2019-Term 1/CSC3150/Project/CSC3150_Assignment_2/source/Log.h
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+unistd.h
+-
+time.h
+-
+curses.h
+-
+termios.h
+-
+fcntl.h
+-
+
+/Users/zhongkaining/OneDrive/College/2019-Term 1/CSC3150/Project/CSC3150_Assignment_2/source/hw2.cpp
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+unistd.h
+-
+time.h
+-
+curses.h
+-
+termios.h
+-
+fcntl.h
+-
+pthread.h
+-
+Log.h
+/Users/zhongkaining/OneDrive/College/2019-Term 1/CSC3150/Project/CSC3150_Assignment_2/source/Log.h
+Frog.h
+/Users/zhongkaining/OneDrive/College/2019-Term 1/CSC3150/Project/CSC3150_Assignment_2/source/Frog.h
+util.h
+/Users/zhongkaining/OneDrive/College/2019-Term 1/CSC3150/Project/CSC3150_Assignment_2/source/util.h
+
+/Users/zhongkaining/OneDrive/College/2019-Term 1/CSC3150/Project/CSC3150_Assignment_2/source/util.h
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+unistd.h
+-
+time.h
+-
+curses.h
+-
+termios.h
+-
+fcntl.h
+-
+Log.h
+/Users/zhongkaining/OneDrive/College/2019-Term 1/CSC3150/Project/CSC3150_Assignment_2/source/Log.h
+Frog.h
+/Users/zhongkaining/OneDrive/College/2019-Term 1/CSC3150/Project/CSC3150_Assignment_2/source/Frog.h
+
