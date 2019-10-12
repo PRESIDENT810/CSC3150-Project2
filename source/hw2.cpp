@@ -13,7 +13,7 @@
 
 #define ROW 10
 #define COLUMN 50
-#define WAIT 100000
+#define WAIT 70000
 
 Frog *frog = new Frog();
 Game *game = new Game();
@@ -40,9 +40,9 @@ void update_frog(Frog *frog) {
 void update_bank(Frog *frog) {
     if (frog->y_pos == 1 || frog->y_pos == 12 || frog->y_pos == 2 || frog->y_pos == 11){
         printf("\033[1;1H");
-        printf("||||||||||||||||||||||||||||||||||||||||||||||||||");
+        printf("||||||||||||||||||||||||||||||||||||||||||||||||||                                      ");
         printf("\033[12;1H");
-        printf("||||||||||||||||||||||||||||||||||||||||||||||||||");
+        printf("||||||||||||||||||||||||||||||||||||||||||||||||||                                      ");
     }
     return;
 }
@@ -56,13 +56,13 @@ void *update_log(void *threadid) {
     while (!isQuit) {
         pthread_mutex_lock(&cursor_mutex);
         current_log->printLog();
-//        update_bank(frog);
+        update_bank(frog);
+        frog->move_withLog(current_log);
         update_frog(frog);
         current_log->logs_move();
-        frog->move_withLog(current_log);
         pthread_mutex_unlock(&cursor_mutex);
-//        update_frog(frog);
         usleep(WAIT);
+//        if game->judge()
     }
 }
 
@@ -73,7 +73,7 @@ void *KeyBoardInput(void *threadid) {
 
     while (!isQuit) {
         if (kbhit()) {
-
+            frog->reset_cursor();
             char dir = getchar();
 
             if (dir == 'w' || dir == 'W') {

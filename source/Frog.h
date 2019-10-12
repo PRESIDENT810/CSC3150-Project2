@@ -46,8 +46,14 @@ public:
         this->y_pos = y; // y means the actual line which frog is in
     }
 
-    void move_withLog(Log *log){
-        if (this->y_pos == log->row) this->x_pos += log->direction;
+    int move_withLog(Log *log){
+        if (this->x_pos < log->left_pos || this->x_pos > log->left_pos+log->len+2) return 0; //die
+        if (this->y_pos-1 == log->row) this->x_pos += log->direction;
+        return 1; //still living
+    }
+
+    void reset_cursor(){
+        printf("\033[%d;%dH", this->y_pos, this->x_pos);
     }
 
     void do_action(char key) {

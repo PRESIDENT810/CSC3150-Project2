@@ -38,8 +38,8 @@ public:
 
     void printLog() {
         printf("\033[%d;1H", this->row + 1);
-        for (int i = 0; i < COLUMN; i++) {
-//            putchar('*');
+//        usleep(100000); // to show necessity of mutex
+        for (int i = 0; i < COLUMN+30; i++) {
             if (i < left_pos || i > left_pos + len) putchar(' ');
             else putchar('=');
         }
@@ -49,7 +49,7 @@ public:
         /*  Move the logs  */
         switch (this->direction) {
             case -1: // moving left
-                if (this->left_pos == 0) { // hit the left wall
+                if (this->left_pos <= 0) { // hit the left wall
                     this->direction = 1; // should move right
                     this->left_pos++;
                 } else {
@@ -58,7 +58,7 @@ public:
                 break;
 
             case 1:
-                if (this->left_pos == COLUMN-len) { // hit the right wall
+                if (this->left_pos >= COLUMN-len) { // hit the right wall
                     this->direction = -1; // should move left
                     this->left_pos--;
                 } else {
