@@ -47,6 +47,8 @@ public:
         else if (frog->y_pos == 1)
             return 2;
 
+        if (frog->x_pos == 1 || frog->x_pos == COLUMN) return 0;
+
         Log *log = logs[frog->y_pos - 2];
         if (log->direction == 1) {
             if (frog->x_pos >= log->left_pos && frog->x_pos <= log->left_pos + log->len + 1) {
@@ -55,9 +57,8 @@ public:
                 this->living = 0;
                 return 0;
             }
-        }
-        else if (log->direction == -1) {
-            if (frog->x_pos >= log->left_pos+1 && frog->x_pos <= log->left_pos + log->len + 2) {
+        } else if (log->direction == -1) {
+            if (frog->x_pos >= log->left_pos + 1 && frog->x_pos <= log->left_pos + log->len + 2) {
                 return 1; // still live
             } else {
                 this->living = 0;
