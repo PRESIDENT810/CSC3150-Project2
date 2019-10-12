@@ -13,6 +13,7 @@
 #include <curses.h>
 #include <termios.h>
 #include <fcntl.h>
+#include "Log.h"
 
 class Frog {
 private:
@@ -43,6 +44,10 @@ public:
     Frog(int y = 12, int x= 25) {
         this->x_pos = x;
         this->y_pos = y; // y means the actual line which frog is in
+    }
+
+    void move_withLog(Log *log){
+        if (this->y_pos == log->row) this->x_pos += log->direction;
     }
 
     void do_action(char key) {

@@ -27,12 +27,13 @@ public:
     int row;
     int len;
     int left_pos;
-    int direction; // 0: left; 1: right
+    int direction; // 1: left; 1: right
 
     Log(int idx = 0, int len = 15, int left_pos = 0) {
         this->row = row + 1; // row starts from 1
         this->len = len;
         this->left_pos = left_pos;
+        this->direction = 1;
     }
 
     void printLog() {
@@ -47,7 +48,7 @@ public:
     void logs_move() {
         /*  Move the logs  */
         switch (this->direction) {
-            case 0: // moving left
+            case -1: // moving left
                 if (this->left_pos == 0) { // hit the left wall
                     this->direction = 1; // should move right
                     this->left_pos++;
@@ -58,7 +59,7 @@ public:
 
             case 1:
                 if (this->left_pos == COLUMN-len) { // hit the right wall
-                    this->direction = 0; // should move left
+                    this->direction = -1; // should move left
                     this->left_pos--;
                 } else {
                     this->left_pos++;

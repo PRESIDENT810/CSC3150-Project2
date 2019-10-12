@@ -19,6 +19,7 @@
 #define ROW 10
 #define COLUMN 50
 
+
 class Game {
 private:
     char action;
@@ -32,29 +33,11 @@ public:
 
     // P.S. print frog and pring log must go together (first print log then print frog)
 
-    void update(Frog *frog, Log *log[]) {
-        if (frog->y_pos == 11 || frog->y_pos == 12 || frog->y_pos == 1 || frog->y_pos == 2) print_bank();
-        for (int i = 0; i < ROW; i++){
-            log[i]->logs_move();
-            log[i]->printLog();
-        }
-        frog->print_frog();
-    }
-
-    void print_bank() {
-        printf("\033[1;1H");
-        printf("||||||||||||||||||||||||||||||||||||||||||||||||||");
-        printf("\033[12;1H");
-        printf("||||||||||||||||||||||||||||||||||||||||||||||||||");
-    }
-
     void init_game() {
         printf("Game Starts!\n");
         printf("\033[?25l");
         sleep(1);
         printf("\033[2J\033[H"); // clear the screen and reset the cursor to upper left
-
-        this->print_bank();
     }
 
     int judge(Frog *frog, Log *log) {
