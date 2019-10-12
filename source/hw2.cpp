@@ -14,35 +14,47 @@
 #define ROW 10
 #define COLUMN 50
 
-Frog *frog = new Frog(10, 25);
-Log logs[10];
+Frog *frog = new Frog();
 Game *game = new Game();
+Log *log1 = new Log();
+Log *log2 = new Log();
+Log *log3 = new Log();
+Log *log4 = new Log();
+Log *log5 = new Log();
+Log *log6 = new Log();
+Log *log7 = new Log();
+Log *log8 = new Log();
+Log *log9 = new Log();
+Log *log10 = new Log();
+Log *logs[] = {log1, log2, log3, log4, log5, log6, log7, log8, log9, log10};
 
-void *init_log(void *threadid){
-    int logid = 0;
-    logid = (int)logid;
-    Log current_log = Log(logid, 15, logid);
-    logs[logid] =current_log;
-    current_log.printLog();
+void *init_log(void *threadid) {
+    long tid;
+    tid = (long) threadid;
+    logs[(int) tid]->row = (int) tid + 1;
+    logs[(int) tid]->left_pos = rand()%(50-logs[(int) tid]->len);
+    logs[(int) tid]->printLog();
 }
 
-int main( int argc, char *argv[] ){
+int main(int argc, char *argv[]) {
     game->init_game();
 
     /*  Create pthreads for wood move and frog control.  */
     pthread_t threads[ROW];
     int rc;
 
-    for(int i =0; i<ROW; i++){
+    for (long i = 0; i < ROW; i++) {
 //        printf("In main: create thread %ld\n", i);
-        rc = pthread_create(&threads[i], NULL, init_log, (void*)i);
-        pthread_join(threads[i],NULL);
-        break;
-        if(rc){
+        rc = pthread_create(&threads[i], NULL, init_log, (void *) i);
+        pthread_join(threads[i], NULL);
+
+        if (rc) {
             printf("ERROR: return code from pthread_create() is %d", rc);
             exit(1);
         }
     }
+
+    frog->print_frog();
 
 
 
@@ -58,20 +70,30 @@ int main( int argc, char *argv[] ){
 
 
     int isQuit = 0;
-	while (!isQuit) {
+    while (!isQuit) {
         if (kbhit()) {
 
             char dir = getchar();
 
             //printf("\033[H\033[2J");
 
-            if (dir == 'w' || dir == 'W') frog->do_action('w');
+            if (dir == 'w' || dir == 'W') {
+                frog->do_action('w');
+            }
 
-            if (dir == 'a' || dir == 'A') frog->do_action('a');
+            if (dir == 'a' || dir == 'A') {
+                frog->do_action('a');
+            }
 
-            if (dir == 'd' || dir == 'D') frog->do_action('d');
+            if (dir == 'd' || dir == 'D') {
+                frog->do_action('d');
+            }
 
-            if (dir == 's' || dir == 'S') frog->do_action('s');
+            if (dir == 's' || dir == 'S') {
+                frog->do_action('s');
+            }
+
+            game->update(frog, logs);
 
             if (dir == 'q' || dir == 'Q') {
                 printf("Quit!\n");
@@ -79,6 +101,6 @@ int main( int argc, char *argv[] ){
             }
         }
     }
-	return 0;
+    return 0;
 
 }

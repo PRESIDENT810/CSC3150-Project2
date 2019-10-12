@@ -19,54 +19,67 @@
 #define ROW 10
 #define COLUMN 50
 
-class Game{
+class Game {
 private:
     char action;
     int living; // 1: living; 0: died; -1: quit
 
 public:
-    Game(){
+    Game() {
         this->action = '0';
         this->living = 1;
     }
 
-    void init_game(){
-        printf("Game Starts!\n");
-        sleep(1);
-        printf("\033[2J\033[H"); // clear the screen and reset the cursor to upper left
+    // P.S. print frog and pring log must go together (first print log then print frog)
 
+    void update(Frog *frog, Log *log[]) {
+        if (frog->y_pos == 11 || frog->y_pos == 12 || frog->y_pos == 1 || frog->y_pos == 2) print_bank();
+        for (int i = 0; i < ROW; i++){
+            log[i]->logs_move();
+            log[i]->printLog();
+        }
+        frog->print_frog();
+    }
+
+    void print_bank() {
         printf("\033[1;1H");
         printf("||||||||||||||||||||||||||||||||||||||||||||||||||");
         printf("\033[12;1H");
         printf("||||||||||||||||||||||||||||||||||||||||||||||||||");
     }
 
-    int judge(Frog *frog, Log *log){
-        if (frog->x_pos >= log->left_pos && frog->x_pos <= log->left_pos+log->len){
+    void init_game() {
+        printf("Game Starts!\n");
+        printf("\033[?25l");
+        sleep(1);
+        printf("\033[2J\033[H"); // clear the screen and reset the cursor to upper left
+
+        this->print_bank();
+    }
+
+    int judge(Frog *frog, Log *log) {
+        if (frog->x_pos >= log->left_pos && frog->x_pos <= log->left_pos + log->len) {
             return 1; // still live
-        }
-        else{
+        } else {
             this->living = 0;
             return 0;
         }
     }
 
-    void show_status(){
+    void show_status() {
         printf("\033[H\033[2J");
-        if (living == 1){
+        if (living == 1) {
             printf("YOU LUCKY BASTARD (win)");
-        }
-        else if (living == 0){
+        } else if (living == 0) {
             printf("YOU DIED (lose)");
-        }
-        else{
+        } else {
             printf("YOU LITTLE COWARD (quit)");
         }
     }
 };
 
 // Determine a keyboard is hit or not. If yes, return 1. If not, return 0.
-int kbhit(void){
+int kbhit(void) {
     struct termios oldt, newt;
     int ch;
     int oldf;
@@ -86,8 +99,7 @@ int kbhit(void){
     tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
     fcntl(STDIN_FILENO, F_SETFL, oldf);
 
-    if(ch != EOF)
-    {
+    if (ch != EOF) {
         ungetc(ch, stdin);
         return 1;
     }

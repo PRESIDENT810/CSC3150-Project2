@@ -17,28 +17,32 @@
 class Frog {
 private:
     void move_up() {
-        y_pos++;
+        if (this->y_pos != 1)
+        this->y_pos--;
     }
 
     void move_down() {
-        y_pos--;
+        if (this->y_pos != 12)
+        this->y_pos++;
     }
 
     void move_left() {
-        x_pos--;
+        if (this->x_pos != 0)
+        this->x_pos--;
     }
 
     void move_right() {
-        x_pos++;
+        if (this->x_pos != 49)
+        this->x_pos++;
     }
 
 public:
     int x_pos;
     int y_pos;
 
-    Frog(int x, int y) {
-        this->x_pos = x + 1; // the position of this frog starts from 1
-        this->y_pos = y + 1;
+    Frog(int y = 12, int x= 25) {
+        this->x_pos = x;
+        this->y_pos = y; // y means the actual line which frog is in
     }
 
     void do_action(char key) {
@@ -61,7 +65,7 @@ public:
     }
 
     void print_frog() {
-        printf("\033[%d;%dH", this->x_pos + 1, this->y_pos);
+        printf("\033[%d;%dH", this->y_pos, this->x_pos);
         printf("0");
     }
 };

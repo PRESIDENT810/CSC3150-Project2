@@ -29,24 +29,22 @@ public:
     int left_pos;
     int direction; // 0: left; 1: right
 
-    Log(int idx = 0, int len = 10, int left_pos = 0) {
+    Log(int idx = 0, int len = 15, int left_pos = 0) {
         this->row = row + 1; // row starts from 1
         this->len = len;
         this->left_pos = left_pos;
     }
 
     void printLog() {
-//        printf("\033[%d;1H", this->row);
-        printf("\033[%d;%dH", this->row + 1, left_pos);
+        printf("\033[%d;1H", this->row + 1);
         for (int i = 0; i < COLUMN; i++) {
+//            putchar('*');
             if (i < left_pos || i > left_pos + len) putchar(' ');
             else putchar('=');
         }
     }
 
-    void logs_move(void *t) {
-
-
+    void logs_move() {
         /*  Move the logs  */
         switch (this->direction) {
             case 0: // moving left
@@ -59,7 +57,7 @@ public:
                 break;
 
             case 1:
-                if (this->left_pos + len == COLUMN) { // hit the right wall
+                if (this->left_pos == COLUMN-len) { // hit the right wall
                     this->direction = 0; // should move left
                     this->left_pos--;
                 } else {
