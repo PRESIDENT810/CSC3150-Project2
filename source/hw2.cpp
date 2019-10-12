@@ -13,7 +13,7 @@
 
 #define ROW 10
 #define COLUMN 50
-#define WAIT 70000
+#define WAIT 150000
 
 Frog *frog = new Frog();
 Game *game = new Game();
@@ -52,6 +52,9 @@ void *update_log(void *threadid) {
     tid = (long) threadid;
     Log *current_log = logs[(int) tid];
     current_log->row = (int) tid + 1;
+    current_log->len = rand()%25;
+    srand(tid);
+    current_log->direction = 2*(tid%2)-1;
     current_log->left_pos = rand() % (50 - logs[(int) tid]->len - 1);
     while (!isQuit) {
         pthread_mutex_lock(&cursor_mutex);
@@ -60,6 +63,11 @@ void *update_log(void *threadid) {
         frog->move_withLog(current_log);
         update_frog(frog);
         current_log->logs_move();
+        int living = game->judge(frog, logs);
+        if (living == 0) {
+            sleep(2);
+            break;
+        }
         pthread_mutex_unlock(&cursor_mutex);
         usleep(WAIT);
 //        if game->judge()
@@ -97,6 +105,8 @@ void *KeyBoardInput(void *threadid) {
                 printf("Quit!\n");
                 pthread_mutex_unlock(&game_mutex); // unlock the mutex so the game ends as main thread quits
                 isQuit = 1;
+                game->living = -1;
+                game->show_status();
             }
         }
     }

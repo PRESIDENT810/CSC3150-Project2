@@ -23,9 +23,10 @@
 class Game {
 private:
     char action;
-    int living; // 1: living; 0: died; -1: quit
 
 public:
+    int living; // 1: living; 0: died; -1: quit 2: win
+
     Game() {
         this->action = '0';
         this->living = 1;
@@ -40,8 +41,14 @@ public:
         printf("\033[2J\033[H"); // clear the screen and reset the cursor to upper left
     }
 
-    int judge(Frog *frog, Log *log) {
-        if (frog->x_pos >= log->left_pos && frog->x_pos <= log->left_pos + log->len) {
+    int judge(Frog *frog, Log *logs[]) {
+        if (frog->y_pos == 12)
+            return 1;
+        else if (frog->y_pos == 1)
+            return 2;
+
+        Log *log = logs[frog->y_pos-2];
+        if (frog->x_pos >= log->left_pos-1 && frog->x_pos <= log->left_pos + log->len+2) {
             return 1; // still live
         } else {
             this->living = 0;
@@ -51,7 +58,7 @@ public:
 
     void show_status() {
         printf("\033[H\033[2J");
-        if (living == 1) {
+        if (living == 2) {
             printf("YOU LUCKY BASTARD (win)");
         } else if (living == 0) {
             printf("YOU DIED (lose)");
